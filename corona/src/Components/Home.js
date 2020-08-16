@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Home = () => {
-    return (
-        <div>
-            <h1>
-                Welcome
-            </h1>
-        </div>
-    )
-}
+  const [data, setData] = useState([]);
 
-export default Home
+  useEffect(() => {
+    axios
+      .get("https://covidtracking.com/api/states")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>Welcome</h1>
+    </div>
+  );
+};
+
+export default Home;
