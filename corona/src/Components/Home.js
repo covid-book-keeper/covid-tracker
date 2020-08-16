@@ -6,14 +6,16 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://covidtracking.com/api/states")
+      .get("https://covidtracking.com/api/us")
       .then((res) => {
-        console.log(res);
+        setData(res.data)
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  console.log(data)
 
   return (
     <div>
